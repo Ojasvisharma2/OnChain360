@@ -1,7 +1,7 @@
 service : {
-  greet: func(name: text) -> (text);
-  get_posts: func() -> (text);
-  get_users: func() -> (text);
-  add_post: func(content: text) -> ();
-  add_user: func(username: text) -> ();
+  greet: (text) -> (text);
+  get_posts: () -> (text);
+  get_users: () -> (text);
+  add_post: (text) -> ();
+  add_user: (text) -> ();
 }

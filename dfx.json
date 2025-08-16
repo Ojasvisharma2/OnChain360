@@ -1,0 +1,31 @@
+{
+  "version": "0.11.1",
+  "canisters": {
+    "backend": {
+      "type": "rust",
+      "candid": "backend/backend.did",
+      "source": ["backend/src"],
+      "build": "cargo build --target wasm32-unknown-unknown --release"
+    },
+    "frontend": {
+      "type": "assets",
+      "source": ["frontend/public"],
+      "build": "echo 'Building frontend...' && exit 0"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": ["https://ic0.app"]
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "esbuild"
+    },
+    "network": "local"
+  }
+}

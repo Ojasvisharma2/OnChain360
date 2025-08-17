@@ -46,5 +46,3 @@ pub struct DirectMessage {
     pub content: String,
     pub timestamp: u64,
 }
-
-

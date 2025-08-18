@@ -1,7 +1,0 @@
-service : {
-  greet: (text) -> (text);
-  get_posts: () -> (text);
-  get_users: () -> (text);
-  add_post: (text) -> ();
-  add_user: (text) -> ();
-}

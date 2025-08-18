@@ -4,7 +4,7 @@ mod models;
 mod utils;
 
 use ic_cdk_macros::*;
-use candid::CandidType;
+use candid::{export_service, CandidType};
 use serde::Deserialize;
 
 use storage::*;
@@ -13,7 +13,10 @@ use models::*;
 use utils::now_seconds;
 
 #[init]
-fn init()
+fn init() {
+    // Initialize storage or state if needed
+    ic_cdk::println!("Canister initialized!");
+}
 
 // Auth API
 #[update]

@@ -1,12 +1,13 @@
 {
   "version": 1,
   "canisters": {
-    "backend": {
+    "onchain360_backend": {
       "type": "rust",
       "package": "onchain360_backend",
       "root": "backend",
-      "candid": "backend/backend.did",
-      "build": "cargo build --target wasm32-unknown-unknown --release --manifest-path backend/Cargo.toml"
+      "candid": "backend/onchain360_backend.did",
+      "wasm": "target/wasm32-unknown-unknown/release/onchain360_backend.wasm",
+      "build": "cargo build --release --target wasm32-unknown-unknown --package onchain360_backend"
     },
     "frontend": {
       "type": "assets",

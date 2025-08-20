@@ -1,0 +1,61 @@
+type AuthResult = record { message : opt text; success : bool };
+type Comment = record {
+  id : nat64;
+  post_id : nat64;
+  content : text;
+  timestamp : nat64;
+  author_id : nat64;
+};
+type DirectMessage = record {
+  id : nat64;
+  receiver_id : nat64;
+  content : text;
+  sender_id : nat64;
+  timestamp : nat64;
+};
+type Notification = record {
+  id : nat64;
+  read : bool;
+  user_id : nat64;
+  message : text;
+  timestamp : nat64;
+};
+type Post = record {
+  id : nat64;
+  content : text;
+  likes : vec nat64;
+  timestamp : nat64;
+  author_id : nat64;
+  comments : vec nat64;
+};
+type Result = variant { Ok : text; Err : AuthResult };
+type Result_1 = variant { Ok : User; Err : AuthResult };
+type User = record {
+  id : nat64;
+  bio : opt text;
+  username : text;
+  followers : vec nat64;
+  following : vec nat64;
+};
+service : () -> {
+  add_comment_api : (nat64, nat64, text) -> (nat64);
+  add_notification_api : (nat64, text) -> (nat64);
+  confirm_reset : (text, text, text) -> (AuthResult);
+  create_post_api : (nat64, text) -> (nat64);
+  follow : (nat64, nat64) -> (bool);
+  get_comment : (nat64) -> (opt Comment) query;
+  get_dms_api : (nat64) -> (vec DirectMessage) query;
+  get_notifications_api : (nat64) -> (vec Notification) query;
+  get_post_api : (nat64) -> (opt Post) query;
+  get_post_likes : (nat64) -> (vec nat64) query;
+  get_user : (nat64) -> (opt User) query;
+  like_post_api : (nat64, nat64) -> (bool);
+  list_post_comments : (nat64) -> (vec Comment) query;
+  list_users : () -> (vec User) query;
+  login_user : (text, text) -> (AuthResult);
+  request_reset : (text) -> (Result);
+  send_dm_api : (nat64, nat64, text) -> (nat64);
+  signup_user : (text, text, text, opt text) -> (Result_1);
+  unfollow : (nat64, nat64) -> (bool);
+  unlike_post_api : (nat64, nat64) -> (bool);
+}

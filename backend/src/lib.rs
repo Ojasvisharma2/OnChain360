@@ -131,5 +131,20 @@ pub fn get_dms_api(user_id: u64) -> Vec<DirectMessage> {
     list_dms(user_id)
 }
 
+#[query]
+pub fn list_posts() -> Vec<Post> {
+    let max = storage::NEXT_POST_ID.with(|c| *c.borrow().get());
+    (0..max).filter_map(|id| posts_get::<Post>(id)).collect()
+}
+
+#[query]
+pub fn list_user_posts(user_id: u64) -> Vec<Post> {
+    let max = storage::NEXT_POST_ID.with(|c| *c.borrow().get());
+    (0..max)
+        .filter_map(|id| posts_get::<Post>(id))
+        .filter(|p| p.author_id == user_id)
+        .collect()
+}
+
 // Export Candid
 ic_cdk::export_candid!();

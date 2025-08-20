@@ -1,20 +1,20 @@
 {
-  "replica_rev": "e915efecc8af90993ccfc499721ebe826aadba60",
-  "effective_canister_id": "uqqxf-5h777-77774-qaaaa-cai",
-  "type": "pocket_ic",
+  "replica_rev": "a62848817cec7ae50618a87a526c85d020283fd9",
+  "effective_canister_id": null,
+  "type": "replica",
   "config": {
     "http_handler": {
       "port": null,
-      "write_port_to": null
+      "write_port_to": "/mnt/c/Users/adiba/OneDrive/Desktop/OnChain360/.dfx/network/local/replica-configuration/replica-1.port"
     },
     "state_manager": {
-      "state_root": "/home/ojasvi/Projects/OnChain360/.dfx/network/local/state/replicated_state"
+      "state_root": "/mnt/c/Users/adiba/OneDrive/Desktop/OnChain360/.dfx/network/local/state/replicated_state"
     },
     "crypto": {
-      "crypto_root": "/home/ojasvi/Projects/OnChain360/.dfx/network/local/state/crypto_store"
+      "crypto_root": "/mnt/c/Users/adiba/OneDrive/Desktop/OnChain360/.dfx/network/local/state/crypto_store"
     },
     "artifact_pool": {
-      "consensus_pool_path": "/home/ojasvi/Projects/OnChain360/.dfx/network/local/state/consensus_pool"
+      "consensus_pool_path": "/mnt/c/Users/adiba/OneDrive/Desktop/OnChain360/.dfx/network/local/state/consensus_pool"
     },
     "subnet_type": "application",
     "btc_adapter": {
@@ -23,7 +23,7 @@
     },
     "canister_http_adapter": {
       "enabled": true,
-      "socket_path": null
+      "socket_path": "/tmp/ic-https-outcalls-adapter-socket.3082.1755701086"
     },
     "log_level": "error",
     "artificial_delay": 600
